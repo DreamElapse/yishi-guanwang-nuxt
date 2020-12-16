@@ -7,11 +7,11 @@
         <p class="text" v-html="item.text"></p>
       </div>
     </div>
-
-    <div v-if="news.length > 3" class="pagation">
+    <!-- 翻页功能 -->
+    <!-- <div v-if="news.length > 3" class="pagation">
       <span class="home page-item" @click="changePage(1)">首页</span>
       <span v-for="(item, index) in pageTotal" :key="index" @click="changePage(item)" :class="['page-item', {'active': page-1 === index}]">{{item}}</span>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -19,8 +19,14 @@
 
   const NEWS = [
     {
+      title: '易食纵横股份有限公司关于易食（招）字2020第1号银川生产经营性物资供应商招商的项目公告',
+      text: '一、招商人：易食纵横股份有限公司 二、招商项目 1.项目名称:2021年易食纵横股份有限公司银川生产经营性物资供应商招商项目...',
+      image: 'https://image1.cdn.yishizongheng.com/shejian_gw/news/pic4.jpg',
+      path: '/news-detail/news4'
+    },
+    {
       title: '高铁美食上新啦 | 温暖就是回家路上的一口“神仙米饭”呀',
-      text: '年初的银杏还在枝头灿烂，转眼我们又将和旅客朋友们一起告别2019，迎来庚子鼠年， 迎接全新时代，曙光在冬日缓缓升起，即将驱走寒冬，带来人间温暖,面对即将到来的春运大客流。为确保每一位旅客在奔波的路途中，享用上精美而有温度的美味餐食，让远方与家之间的距离变得不再那么 遥远我们早早做好了准备…',
+      text: '年初的银杏还在枝头灿烂，转眼我们又将和旅客朋友们一起告别2019，迎来庚子鼠年，迎接全新时代，曙光在冬日缓缓升起，即将驱走寒冬，带来人间温暖,面对即将到来的春运大客流。为确保每一位旅客在奔波的路途中，享用上精美而有温度的美味餐食，让远方与家之间的距离变得不再那么遥远我们早早做好了准备…',
       image: 'https://image1.cdn.yishizongheng.com/shejian_gw/news/pic1.png',
       path: '/news-detail/news1'
     },
@@ -32,10 +38,10 @@
     },
     {
       title: '【北京冬奥会限量】教你轻松拥有未来三年最IN萌物~',
-      text: '9月17日晚，在首钢冰球馆，本年度最强CP，本年度最萌冰雪组合，北京2022年冬奥 会和冬残奥会吉祥物——“冰墩墩”“雪容融”正式亮相！尽管时间还徘徊在2019的冬天，但这两个小可爱的亮相依然把我们提前带到了那个即将因竞技体育而沸腾的冬季。冬季奥林匹克运动会简称为冬季奥运会、冬奥会。主要由全世界各地区举行…',
+      text: '9月17日晚，在首钢冰球馆，本年度最强CP，本年度最萌冰雪组合，北京2022年冬奥会和冬残奥会吉祥物——“冰墩墩”“雪容融”正式亮相！尽管时间还徘徊在2019的冬天，但这两个小可爱的亮相依然把我们提前带到了那个即将因竞技体育而沸腾的冬季。冬季奥林匹克运动会简称为冬季奥运会、冬奥会。主要由全世界各地区举行…',
       image: 'https://image1.cdn.yishizongheng.com/shejian_gw/news/pic3.png',
       path: '/news-detail/news3'
-    }
+    },
     // 更多新闻，往下面增加即可，自动实现分页 todo
   ]
   export default {
@@ -50,7 +56,7 @@
     },
     computed: {
       newsList() {
-        return this.news.slice(this.page*3-3, this.page*3)
+        return this.news.slice(this.page*4-4, this.page*4)
       },
       pageTotal() {
         let arr = []

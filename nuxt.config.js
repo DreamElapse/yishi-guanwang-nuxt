@@ -7,6 +7,7 @@ module.exports = {
     '/news-detail/news1',
     '/news-detail/news2',
     '/news-detail/news3',
+    '/news-detail/news4',
     '/employ-detail/employ1'
   ]
  },

@@ -11,6 +11,12 @@
         <img :src="item.text[0]" alt="" :style="item.isShow?item.imgHeight?{height:item.imgHeight}:'':{width: item.imgWidth}">
         <img :src="item.text[1]" alt="" :style="item.isShow?item.imgHeight?{height:item.imgHeight}:'':{width: item.imgWidth}">
       </p>
+      <p v-if="item.class === 'img-group'" :class="item.class">
+        <template v-for="(img, ind) in item.text">
+          <img :key="'img'+ind" :src="img" alt="" :style="{width: item.imgWidth}"> 
+        </template>
+        
+      </p>
       <div v-if="item.class === 'imgs-text'" :class="item.class">
         <p v-for="(val, i) in item.image" :key="i">
           <img :src="val" alt="" :style="item.isShow?item.imgHeight?{height:item.imgHeight}:'':{width: item.imgWidth}">
@@ -97,6 +103,18 @@
   .imgs img{
     width: 390px;
     margin: 0 15px;
+    margin-bottom: 24px;
+  }
+  .img-group{
+    text-align: center;
+    font-size: 0;
+  }
+  .img-group img{
+    display: block;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .img-group img:last-child{
     margin-bottom: 24px;
   }
 
